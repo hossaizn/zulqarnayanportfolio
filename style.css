@@ -1,4 +1,937 @@
-html {
-  height: 100%;
+:root {
+  --background-color: #06070e;
+  --card-background: rgba(17, 18, 35, 0.7);
+  --text-color: #ecf0f1;
+  --neon-cyan: #00ffff;
+  --neon-pink: #ff00ff;
+  --neon-purple: #b700ff;
+  --font-mono: 'Share Tech Mono', monospace;
+  --font-sans: 'Rajdhani', sans-serif;
+  --grid-line: rgba(33, 150, 243, 0.07);
+  --glow-intensity: 5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Grid Background */
+.grid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  z-index: -10;
+  background-image:
+    linear-gradient(var(--grid-line) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--grid-line) 1.5px, transparent 1.5px);
+  background-size: 40px 40px;
+  background-position: center center;
+  overflow: hidden;
+  animation: gridshift 20s linear infinite;
+  /* add subtle movement*/
+}
+
+/* Stars effect */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -9;
+}
+
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(var(--neon-cyan) 1px, transparent 1px),
+    radial-gradient(var(--neon-pink) 1px, transparent 1px),
+    radial-gradient(var(--neon-purple) 1px, transparent 1px);
+  background-size:
+    180px 180px,
+    250px 250px,
+    300px 300px;
+  animation: stars 60s linear infinite, twinkle 3s ease-in-out infinite;
+  opacity: 0.25;
+  mix-blend-mode: screen;
+}
+
+.stars::after {
+  background-position: 100px 100px, 150px 150px, 200px 200px;
+  opacity: 0.2;
+}
+
+@keyframes stars {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1.25);
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes gridshift {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 40px 40px
+  }
+}
+
+/* Header & Navigation */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  background: rgba(6, 7, 14, 0.8);
+  border-bottom: 1px solid var(--neon-cyan);
+}
+
+.logo h1 {
+  font-family: var(--font-mono);
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--neon-cyan);
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--neon-cyan);
+  box-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+#theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover {
+  transform: rotate(45deg);
+}
+
+/* Main Content */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Neon Cards */
+.neon-card {
+  background: var(--card-background);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 3rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Section Titles */
+.section-title {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--neon-cyan);
+  bottom: -8px;
+  left: 0;
+  box-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan);
+}
+
+/* Glow Effects */
+.glow-text {
+  text-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+}
+
+.glow-border {
+  box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+  border: 1px solid currentColor;
+}
+
+.cyan-glow {
+  color: var(--neon-cyan);
+}
+
+.pink-glow {
+  color: var(--neon-pink);
+}
+
+.purple-glow {
+  color: var(--neon-purple);
+}
+
+/* About Section */
+.section-content {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.profile-container {
+  flex-shrink: 0;
+}
+
+.profile-button {
+  width: 120px;
+  height: 50px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple);
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  font-weight: bold;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+/* Experience Timeline */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  height: 100%;
+  width: 2px;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -40px;
+  top: 6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--background-color);
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan);
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  color: var(--neon-cyan);
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.experience-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.company {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.experience-details {
+  list-style: none;
+}
+
+.experience-details li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: baseline;
+}
+
+.arrow {
+  margin-right: 10px;
+  font-weight: bold;
+  font-family: var(--font-mono);
+}
+
+/* Projects Section */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: rgba(20, 20, 40, 0.7);
+  border-radius: 8px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  border-color: var(--neon-purple);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px var(--neon-purple);
+}
+
+.project-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tech-pill {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid var(--neon-cyan);
+  border-radius: 20px;
+  padding: 0.2rem 0.8rem;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+}
+
+/* Beyond Section */
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.beyond-card {
+  margin-bottom: 1.5rem;
+}
+
+.beyond-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+/* Game Section */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.game-options {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.difficulty-btn {
+  background: none;
+  border-radius: 20px;
+  padding: 0.5rem 1.5rem;
+  font-family: var(--font-mono);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.difficulty-btn:hover,
+.difficulty-btn.active {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 1rem;
+}
+
+.cell {
+  background: rgba(20, 20, 40, 0.7);
+  border: 2px solid var(--neon-cyan);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.cell:hover {
+  background: rgba(0, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.cell.x {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan);
+}
+
+.cell.o {
+  color: var(--neon-pink);
+  text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink);
+}
+
+.game-status {
+  font-family: var(--font-mono);
+  text-align: center;
+  min-height: 50px;
+}
+
+.reset-btn {
+  background: none;
+  border: 2px solid var(--neon-purple);
+  border-radius: 30px;
+  padding: 0.5rem 2rem;
+  font-family: var(--font-mono);
+  color: var(--neon-pink);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--neon-pink), 0 0 20px;
+}
+
+.reset-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--neon-purple);
+}
+
+/* Footer */
+footer {
+  background: rgba(6, 7, 14, 0.9);
+  border-top: 1px solid var(--neon-cyan);
+  padding: 2rem 0;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.social-icon {
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .section-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-container {
+    margin-bottom: 2rem;
+  }
+
+  .project-grid,
+  .beyond-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .logo {
+    margin-bottom: 1rem;
+
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .timeline::before {
+    left: 5px;
+  }
+
+  .timeline-dot {
+    left: -30px;
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  nav ul {
+    gap: 0.5rem;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .game-board {
+    width: 250px;
+    height: 250px;
+  }
+
+  .social-icons {
+    gap: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+  }
+
+  50% {
+    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  }
+
+  100% {
+    box-shadow: 0 0 5px currentColor, 0 0 10px currentColor;
+  }
+}
+
+.glow-border {
+  animation: pulse 2s infinite;
+}
+
+/* Hover effects */
+.project-title:hover,
+.beyond-title:hover,
+.experience-title:hover {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+}
+
+
+/* Add these styles to the existing CSS */
+
+/* Animated background */
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+.grid-background {
+  animation: gridMove 20s linear infinite;
+}
+
+/* Text glitch effect for headings */
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 var(--neon-cyan), -0.05em -0.025em 0 var(--neon-pink);
+    clip-path: polygon(0 0, 100% 0, 100% 25%, 0 25%);
+  }
+
+  25% {
+    text-shadow: -0.05em -0.05em 0 var(--neon-cyan), 0.025em 0.025em 0 var(--neon-pink);
+    clip-path: polygon(0 25%, 100% 25%, 100% 50%, 0 50%);
+  }
+
+  50% {
+    text-shadow: 0.025em 0.05em 0 var(--neon-cyan), -0.05em -0.05em 0 var(--neon-pink);
+    clip-path: polygon(0 50%, 100% 50%, 100% 75%, 0 75%);
+  }
+
+  75% {
+    text-shadow: -0.05em -0.025em 0 var(--neon-cyan), -0.025em -0.05em 0 var(--neon-pink);
+    clip-path: polygon(0 75%, 100% 75%, 100% 100%, 0 100%);
+  }
+
+  100% {
+    text-shadow: -0.025em 0 0 var(--neon-cyan), 0.05em 0.05em 0 var(--neon-pink);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+h1.glow-text:hover,
+h2.glow-text:hover {
+  animation: glitch 2s infinite;
+}
+
+/* Typewriter effect for section titles */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.section-title {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--neon-cyan);
+  padding-right: 5px;
+}
+
+/* Neon flicker effect */
+@keyframes flicker {
+
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    opacity: 1;
+  }
+
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0.5;
+  }
+}
+
+.logo h1 {
+  animation: flicker 10s infinite alternate;
+}
+
+/* Button hover effects */
+.difficulty-btn,
+.reset-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.difficulty-btn::before,
+.reset-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent);
+  transition: 0.5s;
+}
+
+.difficulty-btn:hover::before,
+.reset-btn:hover::before {
+  left: 100%;
+}
+
+/* Timeline dot pulse effect */
+@keyframes dotPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.timeline-dot:hover {
+  animation: dotPulse 1.5s infinite;
+}
+
+/* Hover scale effect for project cards */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Game board cell hover effect */
+.cell:not(.x):not(.o):hover::before,
+.cell:not(.x):not(.o):hover::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+  opacity: 0.3;
+}
+
+/* Scanner line effect */
+/*
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to bottom,
+      rgba(0, 255, 255, 0.5),
+      rgba(0, 255, 255, 0.2) 50%,
+      rgba(0, 255, 255, 0) 100%);
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0.3;
+  animation: scanline 8s linear infinite;
+}
+*/
+
+/* Night mode styles */
+.night-mode {
+  --neon-cyan: #008080;
+  --neon-pink: #800080;
+  --neon-purple: #4b0082;
+  --grid-line: rgba(20, 20, 40, 0.1);
+}
+
+.night-mode .grid-background {
+  background-size: 50px 50px;
+}
+
+.night-mode .timeline::before {
+  box-shadow: 0 0 3px var(--neon-cyan);
+}
+
+.night-mode .glow-text {
+  text-shadow: 0 0 3px currentColor, 0 0 5px currentColor;
+}
+
+.night-mode .glow-border {
+  box-shadow: 0 0 3px currentColor, 0 0 5px currentColor;
+}
+
+/* Add subtle animation to profile photo container */
+@keyframes profilePulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-purple);
+  }
+
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px var(--neon-purple), 0 0 20px var(--neon-purple), 0 0 30px var(--neon-purple);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 5px var(--neon-purple), 0 0 10px var(--neon-purple);
+  }
+}
+
+.profile-button {
+  animation: profilePulse 4s infinite ease-in-out;
+}
+
+/* Add loading effect when page loads */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  animation: fadeIn 1s ease-in;
+}
+
+/* Social icons animation */
+@keyframes iconFloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.social-icon {
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.social-icon:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.social-icon:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.social-icon:nth-child(3) {
+  animation-delay: 0.6s;
 }

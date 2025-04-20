@@ -1,15 +1,305 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zulqarnayan's Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap"
+    rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  Hello world
+  <div class="grid-background">
+    <div class="stars"></div>
+  </div>
+
+  <header>
+    <div class="logo">
+      <h1 class="glow-text cyan-glow">Zulqarnayan's Portfolio</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#experience">EXPERIENCE</a></li>
+        <li><a href="#projects">PROJECTS</a></li>
+        <li><a href="#beyond">BEYOND</a></li>
+        <li><a href="#game">GAME</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <li><button id="theme-toggle" aria-label="Toggle dark mode">
+            <span class="moon-icon">🌙</span>
+          </button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="neon-card">
+      <h2 class="section-title glow-text cyan-glow">About Me</h2>
+      <div class="section-content">
+        <div class="profile-container">
+          <img src="assets/IMG_4291.jpg" alt="Headshot of Zulqarnayan" class="profile-pic glow-border purple-glow" />
+        </div>
+        <div class="about-text">
+          <p>Hey there! I'm <span class="highlight pink-glow">Zulqarnayan</span> — AI enthusiast, digital tinkerer, and
+            professional curious person!</p>
+
+          <p>I'm wrapping up my bachelor's in <span class="highlight pink-glow">Information Systems</span> at the
+            University of Cincinnati (class of 2025, woop woop!). Somewhere between debugging sessions and late-night
+            study binges, I fell head-over-heels for AI — not the world-domination kind, but the kind that helps you
+            automate the boring stuff while you focus on the cool stuff!</p>
+
+          <p>My jam? Building AI agents that feel like digital buddies, training machine learning models that solve real
+            problems, and crafting tools that make you go "why didn't I think of that?" I'm all about that sweet spot
+            where tech meets human creativity, especially in digital marketing where my people skills and technical
+            knowledge team up to create campaigns that actually connect.</p>
+
+          <p>When I'm not geeking out over the latest AI advancements, crafting marketing campaigns, or building digital
+            sandcastles, you'll find me vibing to Dua Lipa, plotting my next side hustle, or daydreaming about where to
+            travel next.</p>
+
+          <p>Feeling competitive? Scroll down and challenge my <span class="highlight pink-glow">Tic Tac Toe game</span>
+            — I dare you to beat it! (No AI was
+            harmed in the making of this game... probably.)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="neon-card">
+      <h2 class="section-title glow-text cyan-glow">Work Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot cyan-glow"></div>
+          <div class="timeline-date">August 2024 - Present</div>
+          <div class="timeline-content">
+            <h3 class="experience-title purple-glow">Operations & Data Analytics Co-op</h3>
+            <div class="company">University of Cincinnati</div>
+            <ul class="experience-details">
+              <li><span class="arrow pink-glow">></span> Conjured Excel dashboards so intuitive they became facilities
+                managers' new best friends</li>
+              <li><span class="arrow pink-glow">></span> Architected Microsoft 365 database systems that turned
+                warehouse chaos into zen</li>
+              <li><span class="arrow pink-glow">></span> Wrangled maintenance data using Python, Snowflake, and Power BI
+                (data didn't stand a chance)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot cyan-glow"></div>
+          <div class="timeline-date">Jan 2025 – Apr 2025</div>
+          <div class="timeline-content">
+            <h3 class="experience-title purple-glow">AI Product Development Co-op</h3>
+            <div class="company">K & J Web Design LLC</div>
+            <ul class="experience-details">
+              <li><span class="arrow pink-glow">></span> Cooked up and battle-tested AI-powered supply chain tools that
+                actually worked</li>
+              <li><span class="arrow pink-glow">></span> Jumped between product development and front-end testing teams
+                like a digital acrobat</li>
+              <li><span class="arrow pink-glow">></span> Crafted NLP solutions that made inventory workflows smooth as
+                butter</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot cyan-glow"></div>
+          <div class="timeline-date">Summer 2024</div>
+          <div class="timeline-content">
+            <h3 class="experience-title purple-glow">Business Intelligence Intern</h3>
+            <div class="company">Toyota Material Handling North America</div>
+            <ul class="experience-details">
+              <li><span class="arrow pink-glow">></span> Built GBM forecasting models that predicted SaaS performance
+                with scary accuracy</li>
+              <li><span class="arrow pink-glow">></span> Teamed up with Palantir to weave AI magic into logistics
+                operations</li>
+              <li><span class="arrow pink-glow">></span> Wowed business leaders with dashboards so insightful they
+                basically made decisions for them</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot cyan-glow"></div>
+          <div class="timeline-date">Summer 2023</div>
+          <div class="timeline-content">
+            <h3 class="experience-title purple-glow">Business Analyst Intern</h3>
+            <div class="company">Toyota Material Handling North America</div>
+            <ul class="experience-details">
+              <li><span class="arrow pink-glow">></span> Led AI discovery sessions that had manufacturing execs
+                genuinely excited about implementation</li>
+              <li><span class="arrow pink-glow">></span> Hunted down efficiency gaps like a business detective with a
+                taste for automation</li>
+              <li><span class="arrow pink-glow">></span> Helped build an AI solution that saved 780 hours annually
+                (that's like gaining a month of Netflix time)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot cyan-glow"></div>
+          <div class="timeline-date">Jan 2023 – Apr 2023</div>
+          <div class="timeline-content">
+            <h3 class="experience-title purple-glow">Software Developer Co-op</h3>
+            <div class="company">University of Cincinnati IT Solutions Center</div>
+            <ul class="experience-details">
+              <li><span class="arrow pink-glow">></span> Crafted React components so reusable they became the digital
+                equivalent of Tupperware</li>
+              <li><span class="arrow pink-glow">></span> Collaborated brilliantly with design and backend teams to
+                create interfaces users actually loved</li>
+              <li><span class="arrow pink-glow">></span> Delivered front-end magic that turned user frowns upside down
+                (metrics don't lie)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot cyan-glow"></div>
+          <div class="timeline-date">Summer 2022</div>
+          <div class="timeline-content">
+            <h3 class="experience-title purple-glow">Student Orientation Leader</h3>
+            <div class="company">University of Cincinnati</div>
+            <ul class="experience-details">
+              <li><span class="arrow pink-glow">></span> Captivated 1,000+ students and families with energetic,
+                engaging presentations</li>
+              <li><span class="arrow pink-glow">></span> Built community through mentorship that felt more like making
+                friends than "advising"</li>
+              <li><span class="arrow pink-glow">></span> Leveled up sales, people skills, and public speaking in
+                environments that moved at warp speed</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="neon-card">
+      <h2 class="section-title glow-text cyan-glow">Project Experience</h2>
+      <div class="project-grid">
+        <div class="project-card glow-border">
+          <h3 class="project-title purple-glow">84.51° Case Competition - Kroger Strategic Roadmap</h3>
+          <p>Crunched data like pros to uncover what categories were poppin' and which ones needed love.</p>
+          <br />
+          <p>Placed 2nd
+            overall!</p>
+          <br />
+          <p>Built a roadmap blending data storytelling with razor-sharp insights.</p>
+          <div class="tech-stack">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">SQL</span>
+            <span class="tech-pill">Power BI</span>
+          </div>
+        </div>
+
+        <div class="project-card glow-border">
+          <h3 class="project-title purple-glow">Business Strategy CapSim Simulation</h3>
+          <p>Survived (and thrived in!) a 10-week business simulation bootcamp where we ran a virtual company with a
+            high-end product differentiation strategy without crashing and burning!</p>
+          <br />
+          <p>Juggled inventory, production
+            capacity, finances, HR, marketing budgets and more to finish top in our class and in the 73rd percentile
+            nationally among undergraduate teams!</p>
+          <div class="tech-stack">
+            <span class="tech-pill">Excel for Financial Modeling</span>
+            <span class="tech-pill">Strategic Frameworks</span>
+            <span class="tech-pill">CapSim Analytics Dashboard</span>
+          </div>
+        </div>
+
+        <div class="project-card glow-border">
+          <h3 class="project-title purple-glow">SpeedSense AI - Client Spend Forecasting</h3>
+          <p>Built a machine learning crystal ball (technically a GBM model in R Studio) that predicts client spending
+            habits based on historical data and KPIs — because who needs a fortune teller when you have algorithms?</p>
+          <br />
+          <p>Unleashed our creation into the wild via ShinyApps.io, enabling real-time financial analysis that makes
+            spreadsheet forecasting look like ancient history!</p>
+          <div class="tech-stack">
+            <span class="tech-pill">R Studio</span>
+            <span class="tech-pill">GBM</span>
+            <span class="tech-pill">Data Visualization</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="beyond" class="neon-card">
+      <h2 class="section-title glow-text cyan-glow">Beyond the Classroom</h2>
+      <div class="beyond-grid">
+        <div class="beyond-card">
+          <h3 class="beyond-title purple-glow">Leadership</h3>
+          <p>Rocked the role of Conference Chair for the CAACURH Regional Leadership Conference 2023, wrangling 260+
+            student leaders from 25+ universities for an epic leadership extravaganza!</p>
+          <br />
+          <p>Captained a crew of 15+ coordinators while juggling logistics, programming, and branding to craft a weekend
+            that was equal parts community-building, advocacy, and "wow, I can actually lead stuff" moments.</p>
+        </div>
+
+        <div class="beyond-card">
+          <h3 class="beyond-title purple-glow">Travel & Culture</h3>
+          <p>Passport collector extraordinaire with stamps from Istanbul, Bali, Makkah, NYC, Chicago and beyond —
+            because why settle for Google Street View when you can experience the real thing?</p>
+          <br />
+          <p>Professional conversation-starter and culture-diver! Whether I'm haggling in spice markets or chatting up
+            locals on metro rides, I'm all about collecting stories, not just souvenirs.</p>
+        </div>
+
+        <div class="beyond-card">
+          <h3 class="beyond-title purple-glow">Extracurricular</h3>
+          <p>Made it into Senior 100 — because apparently doing the leadership thing, the service thing, AND the
+            academic thing all at once impressed someone important!</p>
+          <br />
+          <p>Campus unicorn who gallops between student senate meetings, residence life events, and cross-cultural
+            initiatives — leaving behind a trail of impactful projects, meaningful connections, and a little extra
+            sparkle.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="game" class="neon-card">
+      <h2 class="section-title glow-text cyan-glow">Tic Tac Toe</h2>
+      <div class="game-container">
+        <p>Think you can beat my AI? You're "X", I'm "O" - Your move first! </p>
+        <div class="game-options">
+          <button class="difficulty-btn glow-border cyan-glow" data-difficulty="easy">Easy</button>
+          <button class="difficulty-btn glow-border cyan-glow" data-difficulty="medium">Medium</button>
+          <button class="difficulty-btn glow-border cyan-glow" data-difficulty="hard">Hard</button>
+        </div>
+        <div class="game-board">
+          <div class="cell" data-cell-index="0"></div>
+          <div class="cell" data-cell-index="1"></div>
+          <div class="cell" data-cell-index="2"></div>
+          <div class="cell" data-cell-index="3"></div>
+          <div class="cell" data-cell-index="4"></div>
+          <div class="cell" data-cell-index="5"></div>
+          <div class="cell" data-cell-index="6"></div>
+          <div class="cell" data-cell-index="7"></div>
+          <div class="cell" data-cell-index="8"></div>
+        </div>
+        <div class="game-status">
+          <p>Your turn! Make a move.</p>
+        </div>
+        <button class="reset-btn glow-border pink-glow">Reset Game</button>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-content">
+      <p>Transmit your thoughts across the grid — responses may echo back in neon. 🚀</p>
+      <div class="social-icons">
+        <a href="mailto:hossainzulqarnayan@gmail.com" class="social-icon glow-text cyan-glow"><i
+            class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/zulqarnayan-hossain" target="_blank"
+          class="social-icon glow-text cyan-glow"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/hossaizn" target="_blank" class="social-icon glow-text cyan-glow"><i
+            class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 
