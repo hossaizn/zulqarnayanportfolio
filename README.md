@@ -1,6 +1,6 @@
 # Zulqarnayan's Portfolio
 
-This is my personal portfolio website — a clean, responsive space that highlights who I am, what I do, and what I’m passionate about. Built entirely with HTML, CSS, and JavaScript, it combines modern styling with interactive features to showcase my projects and personality.
+This is my personal portfolio website - a clean, responsive space that highlights who I am, what I do, and what I’m passionate about. Built entirely with HTML, CSS, and JavaScript, it combines modern styling with interactive features to showcase my projects and personality.
 
 Think you're unbeatable at Tic Tac Toe? Prove it! Challenge my crafty JavaScript AI to a match and see if you can outsmart the code. Your X's against my O's—game on!
 
