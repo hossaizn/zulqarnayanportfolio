@@ -2,7 +2,7 @@
 
 This is my personal portfolio website - a clean, responsive space that highlights who I am, what I do, and what I’m passionate about. Built entirely with HTML, CSS, and JavaScript, it combines modern styling with interactive features to showcase my projects and personality.
 
-Think you're unbeatable at Tic Tac Toe? Prove it! Challenge my crafty JavaScript AI to a match and see if you can outsmart the code. Your X's against my O's—game on!
+Think you're unbeatable at Tic Tac Toe? Prove it! Challenge my crafty JavaScript AI to a match and see if you can outsmart the code. Your X's against my O's - game on!
 
 Explore my digital world where every click reveals something fun and every scroll brings a new surprise!
 
@@ -31,8 +31,8 @@ Explore my digital world where every click reveals something fun and every scrol
 
 ## Built With
 
-- **HTML5** – Clean structure and semantic layout
-- **CSS3** – Custom properties, media queries, animations, and visual design
+- **HTML5** - Clean structure and semantic layout
+- **CSS3** - Custom properties, media queries, animations, and visual design
 - **JavaScript (Vanilla)** – DOM interaction, AI game logic, event handling, and background animations
 
 ---
@@ -80,4 +80,4 @@ Hosted via [GitHub Pages](https://pages.github.com)
 
 ## Contact
 
-Feel free to reach out via the contact links in the footer. Whether it's to collaborate, connect, or test your luck against my Tic Tac Toe AI — I'm all ears.
+Feel free to reach out via the contact links in the footer. Whether it's to collaborate, connect, or test your luck against my Tic Tac Toe AI - I'm all ears.
