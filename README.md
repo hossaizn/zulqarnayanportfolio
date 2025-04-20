@@ -1,6 +1,10 @@
 # Zulqarnayan's Portfolio
 
-Welcome to my personal portfolio — a neon-coded experience that showcases who I am, what I build, and what I care about. This project is built entirely with HTML, CSS, and JavaScript to create an interactive, immersive, and responsive personal website.
+This is my personal portfolio website — a clean, responsive space that highlights who I am, what I do, and what I’m passionate about. Built entirely with HTML, CSS, and JavaScript, it combines modern styling with interactive features to showcase my projects and personality.
+
+Think you're unbeatable at Tic Tac Toe? Prove it! Challenge my crafty JavaScript AI to a match and see if you can outsmart the code. Your X's against my O's—game on!
+
+Explore my digital world where every click reveals something fun and every scroll brings a new surprise!
 
 **Live Site**: [https://hossaizn.github.io/zulqarnayanportfolio/](https://hossaizn.github.io/zulqarnayanportfolio/)
 
@@ -35,7 +39,14 @@ Welcome to my personal portfolio — a neon-coded experience that showcases who 
 
 ## File Structure
 
-├── index.html # Main HTML file ├── style.css # Custom styling with neon and dark theme support ├── script.js # Star animation, theme toggle, and game logic ├── assets/ │ └── IMG_4291.jpg # Profile photo └── .replit, .gitignore # Replit and GitHub configuration files
+├── index.html              # Main HTML file
+├── style.css               # Custom styling with neon and dark theme support
+├── script.js               # Star animation, theme toggle, and game logic
+├── assets/
+│   └── IMG_4291.jpg        # Profile photo
+├── .replit                 # Replit configuration file
+└── .gitignore              # Files to ignore in version control
+
 
 
 ---
