@@ -13,10 +13,10 @@ Explore my digital world where every click reveals something fun and every scrol
 ## Features
 
 - **About Me Section**  
-  A personal narrative highlighting my interests in AI, digital creativity, and side-hustles. Includes a profile image with a glow effect.
+  A personal narrative highlighting my interests in AI, digital creativity, and side-hustles.
 
 - **Tic Tac Toe Game**  
-  A JavaScript-powered game with an AI opponent. Difficulty selection and game logic included.
+  A JavaScript-powered game with an AI opponent. 
 
 - **Experience Timeline**  
   Animated vertical timeline styled with CSS to outline my professional roles and achievements.
@@ -40,11 +40,17 @@ Explore my digital world where every click reveals something fun and every scrol
 ## File Structure
 
 ├── index.html              # Main HTML file
+
 ├── style.css               # Custom styling with neon and dark theme support
+
 ├── script.js               # Star animation, theme toggle, and game logic
+
 ├── assets/
+
 │   └── IMG_4291.jpg        # Profile photo
+
 ├── .replit                 # Replit configuration file
+
 └── .gitignore              # Files to ignore in version control
 
 
