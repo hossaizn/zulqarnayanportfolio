@@ -47,7 +47,7 @@ Explore my digital world where every click reveals something fun and every scrol
 
 ├── assets/
 
-│   └── IMG_4291.jpg        # Profile photo
+   └── IMG_4291.jpg        # Profile photo
 
 ├── .replit                 # Replit configuration file
 
